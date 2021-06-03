@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Unity, { UnityContext } from "react-unity-webgl";
+import "./App.css";
 
 export class TestClassComponent extends Component {
   constructor() {
@@ -45,53 +46,22 @@ export class TestClassComponent extends Component {
   render() {
     return (
       <Fragment>
-        <h1>React UnityWebGL</h1>
         <p>Loading: {this.state.progression * 100}%...</p>
-        <p>Rotation {this.state.degrees}deg</p>
-        <p>Last Said {this.state.message}</p>
-        <p>
-          Last Clicked Position {this.state.clickedPositionX},
-          {this.state.clickedPositionY}
-        </p>
-        <button
-          children={"Start Rotation"}
-          onClick={() => this.unityContext.send("MeshCrate", "StartRotation")}
-        />
-        <button
-          children={"Stop Rotation"}
-          onClick={() => this.unityContext.send("MeshCrate", "StopRotation")}
-        />
-        <button
-          children={"Faster Rotation"}
-          onClick={() => {
-            this.speed += 5;
-            this.unityContext.send("MeshCrate", "SetRotationSpeed", this.speed);
-          }}
-        />
-        <button
-          children={"Slower Rotation"}
-          onClick={() => {
-            this.speed -= 5;
-            this.unityContext.send("MeshCrate", "SetRotationSpeed", this.speed);
-          }}
-        />
-        <button
-          children={"(re)Unmount"}
-          onClick={() => this.setState({ showUnity: !this.state.showUnity })}
-        />
-        <div>
+        <div className="gameWrapper">
           {this.state.showUnity === true ? (
-            <Unity
-              style={{
-                width: "600px",
-                height: 400,
-                border: "2px solid black",
-                background: "grey",
-                visibility: this.state.isLoaded ? "visible" : "hidden",
-              }}
-              unityContext={this.unityContext}
-              devicePixelRatio={1}
-            />
+            <div className="game">
+              <Unity
+                style={{
+                  width: "70vw",
+                  height: "100vh",
+                  border: "2px solid black",
+                  background: "grey",
+                  visibility: this.state.isLoaded ? "visible" : "hidden",
+                }}
+                unityContext={this.unityContext}
+                devicePixelRatio={2}
+              />
+            </div>
           ) : (
             <div />
           )}
