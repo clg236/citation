@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Unity, { UnityContext } from "react-unity-webgl";
 import { createGlobalStyle } from 'styled-components'
-import styled from 'styled-components';
 import { AspectRatio } from 'react-aspect-ratio';
 import 'react-aspect-ratio/aspect-ratio.css'
 
@@ -30,10 +29,10 @@ const Game = () => (
 function App() {
   return (
     <React.Fragment>
-        <Game />
+      <GlobalStyle />
+      <Game />
     </React.Fragment>
   )
 }
-
 
 ReactDOM.render(<App />, document.getElementById("root"));
