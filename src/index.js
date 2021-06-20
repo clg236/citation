@@ -32,7 +32,7 @@ const unityContext = new UnityContext({
 })
 
 const Game = () => (
-  <AspectRatio ratio="9/16" style={{ minWidth: '360px' }}>
+  <AspectRatio ratio="9/16" style={{ minWidth: '800px' }}>
     <Unity unityContext={unityContext} devicePixelRatio={2} />;
   </AspectRatio>
 );
